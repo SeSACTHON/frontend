@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-# 현재 브랜치명 가져오기
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 
 # 브랜치 prefix → 커밋 prefix 매핑
@@ -14,18 +13,28 @@ case "$BRANCH_NAME" in
   *) PREFIX="" ;;
 esac
 
-# 커밋 메시지 파일 경로 ($1은 git이 자동으로 전달)
 COMMIT_MSG_FILE="$1"
 
-# 파일에 prefix 추가
 if [ -n "$PREFIX" ]; then
-  # 파일이 비어있으면 prefix만 작성
-  if [ ! -s "$COMMIT_MSG_FILE" ]; then
-    echo "$PREFIX " > "$COMMIT_MSG_FILE"
+  # 파일 내용 읽기 (없으면 빈 문자열)
+  if [ -s "$COMMIT_MSG_FILE" ]; then
+    CONTENTS=$(cat "$COMMIT_MSG_FILE")
   else
-    # 첫 줄 맨 앞에 prefix 추가
-    sed -i "1s/^/$PREFIX /" "$COMMIT_MSG_FILE"
+    CONTENTS=""
   fi
+
+  # 이미 prefix가 포함되어 있으면 중복 추가 방지
+  if [[ "$CONTENTS" == "$PREFIX"* ]]; then
+    echo "⚙️ 이미 prefix가 포함되어 있어 추가하지 않음: $PREFIX"
+    exit 0
+  fi
+
+  # prefix + 기존 내용 다시 작성
+  {
+    echo "$PREFIX "
+    echo "$CONTENTS"
+  } > "$COMMIT_MSG_FILE"
+
   echo "✅ 커밋 템플릿 적용 완료: $PREFIX"
 else
   echo "⚠️ 브랜치 prefix를 인식하지 못했습니다. (현재 브랜치: $BRANCH_NAME)"
