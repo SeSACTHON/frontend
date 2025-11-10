@@ -1109,7 +1109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2":
   version: 7.28.4
   resolution: "@babel/runtime@npm:7.28.4"
   checksum: 10c0/792ce7af9750fb9b93879cc9d1db175701c4689da890e6ced242ea0207c9da411ccf16dc04e689cc01158b28d7898c40d75598f4559109f761c12ce01e959bf7
@@ -2621,7 +2621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-includes@npm:^3.1.6, array-includes@npm:^3.1.8, array-includes@npm:^3.1.9":
+"array-includes@npm:^3.1.1, array-includes@npm:^3.1.6, array-includes@npm:^3.1.8, array-includes@npm:^3.1.9":
   version: 3.1.9
   resolution: "array-includes@npm:3.1.9"
   dependencies:
@@ -3044,6 +3044,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "cookie@npm:1.0.2"
+  checksum: 10c0/fd25fe79e8fbcfcaf6aa61cd081c55d144eeeba755206c058682257cb38c4bd6795c6620de3f064c740695bb65b7949ebb1db7a95e4636efb8357a335ad3f54b
+  languageName: node
+  linkType: hard
+
 "core-js-compat@npm:^3.43.0":
   version: 3.46.0
   resolution: "core-js-compat@npm:3.46.0"
@@ -3217,6 +3224,41 @@ __metadata:
   checksum: 10c0/26f364ebcdb6395f95124fda411f63137a4bfb5d3a06453f7f23dfe52502905bd84e0488172e0f9ec295fdc45f05c23d5d91baf16bd26f0fe9acd777a188dc39
   languageName: node
   linkType: hard
+
+"ecoeco@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ecoeco@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.36.0"
+    "@tailwindcss/postcss": "npm:^4.1.16"
+    "@types/gh-pages": "npm:^6"
+    "@types/node": "npm:^24.6.0"
+    "@types/react": "npm:^19.1.16"
+    "@types/react-dom": "npm:^19.1.9"
+    "@vitejs/plugin-basic-ssl": "npm:^2.1.0"
+    "@vitejs/plugin-react": "npm:^5.0.4"
+    autoprefixer: "npm:^10.4.21"
+    eslint: "npm:^9.38.0"
+    eslint-config-next: "npm:^16.0.0"
+    eslint-plugin-react-hooks: "npm:^5.2.0"
+    eslint-plugin-react-refresh: "npm:^0.4.22"
+    gh-pages: "npm:^6.3.0"
+    globals: "npm:^16.4.0"
+    husky: "npm:^9.1.7"
+    postcss: "npm:^8.5.6"
+    prettier: "npm:^3.6.2"
+    prettier-plugin-tailwindcss: "npm:^0.7.1"
+    react: "npm:^19.1.1"
+    react-activation: "npm:^0.13.4"
+    react-dom: "npm:^19.1.1"
+    react-router-dom: "npm:^7.9.5"
+    tailwindcss: "npm:^4.1.16"
+    typescript: "npm:~5.9.3"
+    typescript-eslint: "npm:^8.45.0"
+    vite: "npm:^7.1.7"
+    vite-plugin-pwa: "npm:^1.1.0"
+  languageName: unknown
+  linkType: soft
 
 "ejs@npm:^3.1.6":
   version: 3.1.10
@@ -4057,39 +4099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"frontend@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "frontend@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.36.0"
-    "@tailwindcss/postcss": "npm:^4.1.16"
-    "@types/gh-pages": "npm:^6"
-    "@types/node": "npm:^24.6.0"
-    "@types/react": "npm:^19.1.16"
-    "@types/react-dom": "npm:^19.1.9"
-    "@vitejs/plugin-basic-ssl": "npm:^2.1.0"
-    "@vitejs/plugin-react": "npm:^5.0.4"
-    autoprefixer: "npm:^10.4.21"
-    eslint: "npm:^9.38.0"
-    eslint-config-next: "npm:^16.0.0"
-    eslint-plugin-react-hooks: "npm:^5.2.0"
-    eslint-plugin-react-refresh: "npm:^0.4.22"
-    gh-pages: "npm:^6.3.0"
-    globals: "npm:^16.4.0"
-    husky: "npm:^9.1.7"
-    postcss: "npm:^8.5.6"
-    prettier: "npm:^3.6.2"
-    prettier-plugin-tailwindcss: "npm:^0.7.1"
-    react: "npm:^19.1.1"
-    react-dom: "npm:^19.1.1"
-    tailwindcss: "npm:^4.1.16"
-    typescript: "npm:~5.9.3"
-    typescript-eslint: "npm:^8.45.0"
-    vite: "npm:^7.1.7"
-    vite-plugin-pwa: "npm:^1.1.0"
-  languageName: unknown
-  linkType: soft
-
 "fs-extra@npm:^11.1.1":
   version: 11.3.2
   resolution: "fs-extra@npm:11.3.2"
@@ -4443,6 +4452,15 @@ __metadata:
   dependencies:
     hermes-estree: "npm:0.25.1"
   checksum: 10c0/3abaa4c6f1bcc25273f267297a89a4904963ea29af19b8e4f6eabe04f1c2c7e9abd7bfc4730ddb1d58f2ea04b6fee74053d8bddb5656ec6ebf6c79cc8d14202c
+  languageName: node
+  linkType: hard
+
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: "npm:^16.7.0"
+  checksum: 10c0/fe0889169e845d738b59b64badf5e55fa3cf20454f9203d1eb088df322d49d4318df774828e789898dcb280e8a5521bb59b3203385662ca5e9218a6ca5820e74
   languageName: node
   linkType: hard
 
@@ -5013,6 +5031,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsx-ast-utils@npm:^2.2.1":
+  version: 2.4.1
+  resolution: "jsx-ast-utils@npm:2.4.1"
+  dependencies:
+    array-includes: "npm:^3.1.1"
+    object.assign: "npm:^4.1.0"
+  checksum: 10c0/af9716a7d0d825fe5704a4829d193144bb7eb184a1360c83068f91694790b3fe5dddf9c60ecfcf13c8749796b335a990939b0f74de96f66592e79d96981a9053
+  languageName: node
+  linkType: hard
+
 "jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.5":
   version: 3.3.5
   resolution: "jsx-ast-utils@npm:3.3.5"
@@ -5545,7 +5573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.1.4, object.assign@npm:^4.1.7":
+"object.assign@npm:^4.1.0, object.assign@npm:^4.1.4, object.assign@npm:^4.1.7":
   version: 4.1.7
   resolution: "object.assign@npm:4.1.7"
   dependencies:
@@ -5945,6 +5973,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-activation@npm:^0.13.4":
+  version: 0.13.4
+  resolution: "react-activation@npm:0.13.4"
+  dependencies:
+    hoist-non-react-statics: "npm:^3.3.0"
+    react-node-key: "npm:^0.4.0"
+    szfe-tools: "npm:^0.0.0-beta.7"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10c0/19350289b4152fdbc1bbcac88456d6be35be2cea8719f26b02f2b7a481a4041448f23f848848597b098612a018c661c6ff29b43b88bc1cc85cded60669bfef54
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^19.1.1":
   version: 19.2.0
   resolution: "react-dom@npm:19.2.0"
@@ -5956,10 +5997,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
+"react-node-key@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "react-node-key@npm:0.4.0"
+  dependencies:
+    jsx-ast-utils: "npm:^2.2.1"
+    szfe-tools: "npm:^0.0.0-beta.7"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10c0/28359b1c5e5525752ea4166155716a788c5d073f7917b28b929148bdf567e278fd80992c9c9a502bf371f68c1a579d9bb4c430227e5c7fa914325e1a49e62106
   languageName: node
   linkType: hard
 
@@ -5967,6 +6020,34 @@ __metadata:
   version: 0.18.0
   resolution: "react-refresh@npm:0.18.0"
   checksum: 10c0/34a262f7fd803433a534f50deb27a148112a81adcae440c7d1cbae7ef14d21ea8f2b3d783e858cb7698968183b77755a38b4d4b5b1d79b4f4689c2f6d358fff2
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^7.9.5":
+  version: 7.9.5
+  resolution: "react-router-dom@npm:7.9.5"
+  dependencies:
+    react-router: "npm:7.9.5"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/e54fdfa211e356bd89e3c12b1f89537058357ef21b6a05f55456e0defaab8e77b7495e035ff6999b17a9a2e6f8204d46cf5897fe56e5d3db9458109a014efc4d
+  languageName: node
+  linkType: hard
+
+"react-router@npm:7.9.5":
+  version: 7.9.5
+  resolution: "react-router@npm:7.9.5"
+  dependencies:
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10c0/e961816b4096a6ca97fc53626fc6532014c0de4c45bf6c234b8205eb4f94be8f357d67819e4f4f58507f79ef9bda4c3f70031a8dd13c7045e3ad0ecb12f819e3
   languageName: node
   linkType: hard
 
@@ -6325,6 +6406,13 @@ __metadata:
   dependencies:
     randombytes: "npm:^2.1.0"
   checksum: 10c0/2dd09ef4b65a1289ba24a788b1423a035581bef60817bea1f01eda8e3bda623f86357665fe7ac1b50f6d4f583f97db9615b3f07b2a2e8cbcb75033965f771dd2
+  languageName: node
+  linkType: hard
+
+"set-cookie-parser@npm:^2.6.0":
+  version: 2.7.2
+  resolution: "set-cookie-parser@npm:2.7.2"
+  checksum: 10c0/4381a9eb7ee951dfe393fe7aacf76b9a3b4e93a684d2162ab35594fa4053cc82a4d7d7582bf397718012c9adcf839b8cd8f57c6c42901ea9effe33c752da4a45
   languageName: node
   linkType: hard
 
@@ -6718,6 +6806,15 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10c0/6c4032340701a9950865f7ae8ef38578d8d7053f5e10518076e6554a9381fa91bd9c6850193695c141f32b21f979c985db07265a758867bac95de05f7d8aeb39
+  languageName: node
+  linkType: hard
+
+"szfe-tools@npm:^0.0.0-beta.7":
+  version: 0.0.0-beta.7
+  resolution: "szfe-tools@npm:0.0.0-beta.7"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.2"
+  checksum: 10c0/01d432fe20bab8701d3f9e0bc625d5b36b570f1b21078b0b6ff445069b03f29a0e581439ab05633f765d62f6e629899698d38ccbd4d896e66b7ca2b481fd6cba
   languageName: node
   linkType: hard
 
