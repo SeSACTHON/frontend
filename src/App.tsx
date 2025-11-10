@@ -1,16 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import KeepAlive from 'react-activation';
 
-import { AuthProvider } from './context/Auth/AuthProvider';
+import { AuthProvider } from '@/context/Auth/AuthProvider';
 
-import Splash from './pages/Splash/Splash';
-import Login from './pages/Login/Login';
-import Home from './pages/Home/Home';
-import Chat from './pages/Chat/Chat';
-import Info from './pages/Info/Info';
-import Map from './pages/Map/Map';
-import AppLayout from './pages/App/AppLayout';
-import Camera from './pages/Camera/Camera';
+import Splash from '@/pages/Splash/Splash';
+import Login from '@/pages/Login/Login';
+import Home from '@/pages/Home/Home';
+import Chat from '@/pages/Chat/Chat';
+import Info from '@/pages/Info/Info';
+import Map from '@/pages/Map/Map';
+import AppLayout from '@/pages/App/AppLayout';
+import Camera from '@/pages/Camera/Camera';
 
 const App = () => (
   <AuthProvider>
