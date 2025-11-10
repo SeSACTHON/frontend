@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  /* App 전체 스타일 */
   --color-white: #ffffff;
   --color-inactive: #f9f9f9;
   --color-brand-primary: #569f87;
@@ -8,6 +9,11 @@
   --color-text-primary: #121212;
   --color-text-secondary: #6a7282;
   --color-text-inactive: #99a1af;
+
+  --max-width-app: 480px;
+
+  /* 하단바 스타일 */
+  --height-bottom-nav: 83px;
 }
 
 @font-face {
@@ -93,14 +99,13 @@
 #root {
   width: 100%;
   height: 100%;
-  max-width: 480px;
+  max-width: var(--max-width-app);
   min-width: 320px;
   max-height: 900px;
   min-height: 500px;
   margin: 0 auto;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
 }
 
 /* 기본 html, body 초기화 + 화면 폭 제한 */
