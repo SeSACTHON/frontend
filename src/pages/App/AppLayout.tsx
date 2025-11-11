@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import BottomNav from '../../components/bottomNav/BottomNav';
+import BottomNav from '@/components/bottomNav/BottomNav';
 
 const AppLayout = () => {
   const location = useLocation();
