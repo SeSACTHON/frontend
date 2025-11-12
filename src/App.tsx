@@ -1,16 +1,15 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import KeepAlive from 'react-activation';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AuthProvider } from '@/context/Auth/AuthProvider';
 
-import Splash from '@/pages/Splash/Splash';
-import Login from '@/pages/Login/Login';
-import Home from '@/pages/Home/Home';
-import Chat from '@/pages/Chat/Chat';
-import Info from '@/pages/Info/Info';
-import Map from '@/pages/Map/Map';
 import AppLayout from '@/pages/App/AppLayout';
 import Camera from '@/pages/Camera/Camera';
+import Chat from '@/pages/Chat/Chat';
+import Home from '@/pages/Home/Home';
+import Info from '@/pages/Info/Info';
+import Login from '@/pages/Login/Login';
+import Map from '@/pages/Map/Map';
+import Splash from '@/pages/Splash/Splash';
 
 const App = () => (
   <AuthProvider>
@@ -19,46 +18,11 @@ const App = () => (
       <Route path='/login' element={<Login />} />
 
       <Route path='/' element={<AppLayout />}>
-        <Route
-          path='home'
-          element={
-            <KeepAlive id='home'>
-              <Home />
-            </KeepAlive>
-          }
-        />
-        <Route
-          path='chat'
-          element={
-            <KeepAlive id='chat'>
-              <Chat />
-            </KeepAlive>
-          }
-        />
-        <Route
-          path='camera'
-          element={
-            <KeepAlive id='camera'>
-              <Camera />
-            </KeepAlive>
-          }
-        />
-        <Route
-          path='info'
-          element={
-            <KeepAlive id='info'>
-              <Info />
-            </KeepAlive>
-          }
-        />
-        <Route
-          path='map'
-          element={
-            <KeepAlive id='map'>
-              <Map />
-            </KeepAlive>
-          }
-        />
+        <Route path='home' element={<Home />} />
+        <Route path='chat' element={<Chat />} />
+        <Route path='camera' element={<Camera />} />
+        <Route path='info' element={<Info />} />
+        <Route path='map' element={<Map />} />
       </Route>
       {/* 잘못된 경로 진입 시 → 스플래시로 이동 */}
       <Route path='*' element={<Navigate to='/' replace />} />

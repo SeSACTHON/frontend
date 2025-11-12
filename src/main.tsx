@@ -6,8 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    {/* 화면 캐싱 기능 임시 해제 */}
+    {/* <AliveScope> */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    {/* </AliveScope> */}
   </StrictMode>,
 );
