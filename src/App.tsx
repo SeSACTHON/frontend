@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '@/context/Auth/AuthProvider';
 
 import AppLayout from '@/pages/App/AppLayout';
+import Answer from '@/pages/Camera/Answer';
 import Camera from '@/pages/Camera/Camera';
 import Chat from '@/pages/Chat/Chat';
 import Home from '@/pages/Home/Home';
@@ -21,6 +22,7 @@ const App = () => (
         <Route path='home' element={<Home />} />
         <Route path='chat' element={<Chat />} />
         <Route path='camera' element={<Camera />} />
+        <Route path='camera/answer' element={<Answer />} />
         <Route path='info' element={<Info />} />
         <Route path='map' element={<Map />} />
       </Route>
