@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import home_active from '@/assets/icon/bottomNav/home_active.svg';
-import info_active from '@/assets/icon/bottomNav/info_active.svg';
-import map_active from '@/assets/icon/bottomNav/map_active.svg';
-import home from '@/assets/icon/bottomNav/home.svg';
-import chat from '@/assets/icon/bottomNav/chat.svg';
-import info from '@/assets/icon/bottomNav/info.svg';
-import map from '@/assets/icon/bottomNav/map.svg';
-import camera from '@/assets/icon/bottomNav/camera.svg';
+import home_active from '@/assets/icons/bottomNav/home_active.svg';
+import info_active from '@/assets/icons/bottomNav/info_active.svg';
+import map_active from '@/assets/icons/bottomNav/map_active.svg';
+import home from '@/assets/icons/bottomNav/home.svg';
+import chat from '@/assets/icons/bottomNav/chat.svg';
+import info from '@/assets/icons/bottomNav/info.svg';
+import map from '@/assets/icons/bottomNav/map.svg';
+import camera from '@/assets/icons/bottomNav/camera.svg';
 
 const BottomNav = () => {
   const tabs = [
