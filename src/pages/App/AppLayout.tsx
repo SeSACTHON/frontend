@@ -2,7 +2,7 @@ import BottomNav from '@/components/bottomNav/BottomNav';
 import { Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
-  const hideBottomNavPaths = ['/chat', '/camera'];
+  const hideBottomNavPaths = ['/chat', '/camera', '/camera/answer'];
   const showBottomNav = !hideBottomNavPaths.some((path) =>
     location.pathname.startsWith(path),
   );
