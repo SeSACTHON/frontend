@@ -1,6 +1,6 @@
-import superPinMarker from '@/assets/icon/map/super-pin-marker.svg';
-import userMarker from '@/assets/icon/map/user-marker.svg';
-import zeroWasteMarker from '@/assets/icon/map/zero-waste-marker.svg';
+import superPinMarker from '@/assets/icons/icon_superbean.svg';
+import userMarker from '@/assets/icons/my_location.svg';
+import zeroWasteMarker from '@/assets/icons/icon_zerowaste.svg';
 import { DEFAULT_CENTER, useGeolocation } from '@/hooks/useGeolocation';
 import useKakaoLoaderOrigin from '@/hooks/useKakaoLoaderOrigin';
 import { Map as KakaoMap, MapMarker } from 'react-kakao-maps-sdk';

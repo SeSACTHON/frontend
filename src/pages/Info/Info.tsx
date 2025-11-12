@@ -1,10 +1,10 @@
-import Can from '@/assets/images/info/can.png';
-import CarSmoke from '@/assets/images/info/car-smoke.png';
-import RecyclingCheer from '@/assets/images/info/eco-recycling-cheer.png';
-import Paper from '@/assets/images/info/paper.png';
-import PlasticBottle from '@/assets/images/info/plastic-bottle.png';
-import RecyclingBin from '@/assets/images/info/recycling-bin.png';
-import TrashBag from '@/assets/images/info/trash-bag.png';
+import Can from '@/assets/icons/icon_can.svg';
+import CarSmoke from '@/assets/icons/icon_car.svg';
+import RecyclingCheer from '@/assets/images/mainCharacter/main_5.png';
+import Paper from '@/assets/icons/icon_paper.svg';
+import Pet from '@/assets/icons/icon_pet.svg';
+import RecyclingBin from '@/assets/icons/icon_recycle.svg';
+import TrashBag from '@/assets/icons/icon_trash_vinyl.svg';
 import { useNavigate } from 'react-router-dom';
 
 const tips: string[] = [
@@ -59,11 +59,7 @@ const Info = () => {
 
             <div className='rounded-2xl bg-white/20 p-4'>
               <div className='mb-3 flex items-center justify-center gap-6'>
-                <img
-                  src={PlasticBottle}
-                  alt='plastic-bottle'
-                  className='h-10 w-8'
-                />
+                <img src={Pet} alt='plastic-bottle' className='h-10 w-8' />
                 <img src={Paper} alt='paper' className='h-10 w-14' />
                 <img src={Can} alt='can' className='h-10 w-9' />
               </div>
