@@ -34,6 +34,7 @@ const Map = () => {
           {tempPositions.length > 0 &&
             tempPositions.map((position, index) => (
               <MapMarker
+                key={index}
                 position={position}
                 image={{
                   src: index % 2 === 0 ? zeroWasteMarker : superPinMarker,
