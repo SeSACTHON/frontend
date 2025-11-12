@@ -1,36 +1,35 @@
 import { NavLink } from 'react-router-dom';
-import home_active from '@/assets/icons/bottomNav/home_active.svg';
-import info_active from '@/assets/icons/bottomNav/info_active.svg';
-import map_active from '@/assets/icons/bottomNav/map_active.svg';
-import home from '@/assets/icons/bottomNav/home.svg';
-import chat from '@/assets/icons/bottomNav/chat.svg';
-import info from '@/assets/icons/bottomNav/info.svg';
-import map from '@/assets/icons/bottomNav/map.svg';
-import camera from '@/assets/icons/bottomNav/camera.svg';
-
+import homeActive from '@/assets/icons/home_active.svg';
+import infoActive from '@/assets/icons/info_active.svg';
+import mapActive from '@/assets/icons/map_active.svg';
+import homeInActive from '@/assets/icons/home_inactive.svg';
+import infoInActive from '@/assets/icons/info_inactive.svg';
+import mapInActive from '@/assets/icons/map_inactive.svg';
+import chatInActive from '@/assets/icons/chat_inactive.svg';
+import cameraInActive from '@/assets/images/camera/camera.png';
 const BottomNav = () => {
   const tabs = [
     {
       path: '/home',
       label: 'HOME',
-      icon: home,
-      activeIcon: home_active,
+      icon: homeInActive,
+      activeIcon: homeActive,
       margin: '',
     },
-    { path: '/chat', label: 'CHAT', icon: chat, margin: 'mr-8' },
-    { path: '/camera', label: 'CAMERA', icon: camera, isCenter: true },
+    { path: '/chat', label: 'CHAT', icon: chatInActive, margin: 'mr-8' },
+    { path: '/camera', label: 'CAMERA', icon: cameraInActive, isCenter: true },
     {
       path: '/info',
       label: 'INFO',
-      icon: info,
-      activeIcon: info_active,
+      icon: infoInActive,
+      activeIcon: infoActive,
       margin: 'ml-8',
     },
     {
       path: '/map',
       label: 'MAP',
-      icon: map,
-      activeIcon: map_active,
+      icon: mapInActive,
+      activeIcon: mapActive,
       margin: '',
     },
   ];
@@ -72,8 +71,8 @@ const BottomNav = () => {
         >
           {({ isActive }) =>
             isCenter ? (
-              <div className='bg-brand-primary absolute bottom-0 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-105'>
-                <img src={camera} alt={label} className='h-7 w-7' />
+              <div className='absolute bottom-0 flex items-center justify-center transition-transform hover:scale-105'>
+                <img src={cameraInActive} alt={label} />
               </div>
             ) : (
               bottomItem(label, icon, activeIcon ?? '', isActive, margin)
