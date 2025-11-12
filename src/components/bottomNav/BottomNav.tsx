@@ -6,7 +6,8 @@ import homeInActive from '@/assets/icons/home_inactive.svg';
 import infoInActive from '@/assets/icons/info_inactive.svg';
 import mapInActive from '@/assets/icons/map_inactive.svg';
 import chatInActive from '@/assets/icons/chat_inactive.svg';
-import cameraInActive from '@/assets/images/camera/camera.png';
+import camera from '@/assets/images/camera/camera.png';
+
 const BottomNav = () => {
   const tabs = [
     {
@@ -17,7 +18,7 @@ const BottomNav = () => {
       margin: '',
     },
     { path: '/chat', label: 'CHAT', icon: chatInActive, margin: 'mr-8' },
-    { path: '/camera', label: 'CAMERA', icon: cameraInActive, isCenter: true },
+    { path: '/camera', label: 'CAMERA', icon: camera, isCenter: true },
     {
       path: '/info',
       label: 'INFO',
@@ -71,8 +72,8 @@ const BottomNav = () => {
         >
           {({ isActive }) =>
             isCenter ? (
-              <div className='absolute bottom-0 flex items-center justify-center transition-transform hover:scale-105'>
-                <img src={cameraInActive} alt={label} />
+              <div className='absolute bottom-0 flex h-14 w-14 items-center justify-center transition-transform hover:scale-105'>
+                <img src={icon} alt={label} />
               </div>
             ) : (
               bottomItem(label, icon, activeIcon ?? '', isActive, margin)
