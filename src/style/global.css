@@ -16,10 +16,6 @@
   --height-bottom-nav: 83px;
 }
 
-@utility no-scrollbar {
-  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
-}
-
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/Inter/Inter-Thin.woff2') format('font-woff2');
@@ -119,6 +115,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
