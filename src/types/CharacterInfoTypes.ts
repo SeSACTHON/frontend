@@ -1,8 +1,10 @@
 import type { CHARACTER_DATA } from '@/constants/CharacterInfo';
 
+export type ChracterType = 'main' | 'sub';
+
 export type CharacterItem = {
   id: string;
-  characterType: 'main' | 'sub';
+  characterType: ChracterType;
   wasteName: string;
   characterName: string;
   wasteImage: string;

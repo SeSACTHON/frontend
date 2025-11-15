@@ -2,7 +2,7 @@ import MyPage from '@/assets/icons/icon_my_page.svg';
 import { useEffect, useState } from 'react';
 import type { CharacterItem, CharacterKey } from '@/types/CharacterInfoTypes';
 import { CHARACTER_DATA } from '@/constants/CharacterInfo';
-import CharacterList from './CharacterList';
+import CharacterCollection from './CharacterCollection';
 
 const Home = () => {
   const [selectedCharacter, setSelectedCharacter] =
@@ -38,22 +38,22 @@ const Home = () => {
                 <span className='text-text-primary text-[12px] leading-[19.5px] font-medium tracking-[-0.2px]'>
                   찰칵! 분리수거하고 이코의 친구를 얻어보세요!
                 </span>
-                <div className='absolute top-full right-25 h-0 w-0 border-t-10 border-r-10 border-l-10 border-t-white border-r-transparent border-l-transparent' />
+                <div className='absolute top-full left-[65%] h-0 w-0 -translate-x-1/2 border-t-10 border-r-10 border-t-white border-r-transparent' />
               </div>
             </div>
           )}
         </div>
 
         {/* 캐릭터 정보 */}
-        <div className='relative flex h-[360px] items-end justify-center pt-6'>
+        <div className='relative mb-[15px] flex h-[360px] items-end justify-center pt-6'>
           <img
             src={viewInfo.characterImage}
             alt={viewInfo.characterName}
-            className='z-10 h-41 w-41 object-contain'
+            className='h-41 w-41 object-contain'
           />
           {/* 그림자 */}
           <div
-            className={`absolute bottom-0 h-[23px] rounded-[50%] bg-black/15 blur-[6px] ${viewInfo.characterType === 'main' ? 'w-[151px]' : 'w-[109]'}`}
+            className={`absolute bottom-0 h-[23px] rounded-[50%] bg-black/15 blur-[6px] ${viewInfo.characterType === 'main' ? 'w-[151px]' : 'w-[109px]'}`}
           />
         </div>
         <p className='text-text-primary pt-[15px] text-[18px] leading-6 font-extrabold tracking-[-0.312px]'>
@@ -63,8 +63,7 @@ const Home = () => {
           {viewInfo.description}
         </p>
       </div>
-
-      <CharacterList
+      <CharacterCollection
         selectedCharacter={selectedCharacter}
         setSelectedCharacter={setSelectedCharacter}
       />
