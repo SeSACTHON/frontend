@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import Logo from '@/assets/images/mainCharacter/app_logo.png';
 
 const Splash = () => {
   const navigate = useNavigate();
@@ -18,7 +19,11 @@ const Splash = () => {
     return () => clearTimeout(timer);
   }, [isLoggedIn, navigate]);
 
-  return <div className='h-full w-full bg-green-400'>splash</div>;
+  return (
+    <div className='bg-brand-secondary flex h-full w-full items-center justify-center'>
+      <img src={Logo} alt='logo' className='h-[119px] w-[119px]' />
+    </div>
+  );
 };
 
 export default Splash;

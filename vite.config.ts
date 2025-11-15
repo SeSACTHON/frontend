@@ -34,22 +34,22 @@ export default defineConfig({
         scope: '/',
         icons: [
           {
-            src: '/icons/eco180.png',
+            src: '/icons/ic_logo_180.png',
             sizes: '180x180',
             type: 'image/png',
           },
           {
-            src: '/icons/eco192.png',
+            src: '/icons/ic_logo_192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icons/eco512.png',
+            src: '/icons/ic_logo_512.png',
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: '/icons/eco512.png',
+            src: '/icons/ic_logo_512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',
