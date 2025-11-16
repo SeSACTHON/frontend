@@ -1,0 +1,33 @@
+import { BottomSheet } from '@/components/bottomSheet/BottomSheet';
+import { MapCardList } from './MapCardList';
+import { EcoHelperCard } from './EcoHelperCard';
+
+interface MapBottomSheetProps {
+  selectedId: number | null;
+  setSelectedId: (id: number) => void;
+}
+
+export const MapBottomSheet = ({
+  selectedId,
+  setSelectedId,
+}: MapBottomSheetProps) => {
+  return (
+    <BottomSheet isOpen>
+      <div id='title' className='mb-3 gap-1'>
+        <h2 className='text-text-primary text-[17px] leading-6 font-semibold'>
+          친환경 장소
+        </h2>
+        <p className='text-text-secondary text-xs leading-4'>
+          가까운 곳부터 보여드릴게요
+        </p>
+      </div>
+
+      <MapCardList
+        selectLocationId={selectedId}
+        setSelectLocationId={setSelectedId}
+      />
+
+      <EcoHelperCard />
+    </BottomSheet>
+  );
+};

@@ -11,7 +11,7 @@ export const MapCardList = ({
   setSelectLocationId,
 }: MapCardListProps) => {
   return (
-    <div className='space-y-3'>
+    <div className='mb-4 space-y-3'>
       {MapTemplateData.map((location) => (
         <MapCard
           key={location.id}
