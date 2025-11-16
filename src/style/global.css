@@ -9,11 +9,14 @@
   --color-text-primary: #121212;
   --color-text-secondary: #6a7282;
   --color-text-inactive: #99a1af;
+  --color-stroke-default: #e5e7eb;
 
   --max-width-app: 480px;
 
-  /* 하단바 스타일 */
+  /* 하단바, 상단바 스타일 */
   --height-bottom-nav: 83px;
+  --height-app-header: 80px;
+  --height-chat-input-bar: 83px;
 }
 
 @utility no-scrollbar {
