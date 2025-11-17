@@ -30,6 +30,26 @@ const TEXT_COLOR = {
   locked: 'text-[#99A1AF]',
 };
 
+const header = ({
+  acquiredList,
+  totalWasteCnt,
+}: {
+  acquiredList: CharacterKey[];
+  totalWasteCnt: number;
+}) => (
+  <div className='flex flex-row justify-between pb-6'>
+    <span className='text-text-primary text-[17px] leading-6 font-semibold tracking-[-0.312px]'>
+      캐릭터 컬렉션
+    </span>
+    <div className='text-brand-primary flex h-[27px] shrink-0 items-center justify-center gap-[5px] rounded-[18px] border border-[#B9F8CF] bg-[#F0FDF4] px-2.5 py-1.5 text-center text-[12px] font-medium tracking-[-0.312px]'>
+      <p className='font-extrabold'>
+        {acquiredList.length}/{totalWasteCnt}
+      </p>
+      캐릭터 획득!
+    </div>
+  </div>
+);
+
 const CharacterCollection = ({
   selectedCharacter,
   setSelectedCharacter,
@@ -43,51 +63,42 @@ const CharacterCollection = ({
   const totalWasteCnt = Object.keys(CHARACTER_DATA).length;
 
   return (
-    <BottomSheet isOpen initialHeight={40} minHeight={40}>
-      <div className='g-6 h-full w-full'>
-        {/* 타이틀 */}
-        <div className='flex flex-row justify-between pb-6'>
-          <span className='text-text-primary text-[17px] leading-6 font-semibold tracking-[-0.312px]'>
-            캐릭터 컬렉션
-          </span>
-          <div className='text-brand-primary flex h-[27px] shrink-0 items-center justify-center gap-[5px] rounded-[18px] border border-[#B9F8CF] bg-[#F0FDF4] px-2.5 py-1.5 text-center text-[12px] font-medium tracking-[-0.312px]'>
-            <p className='font-extrabold'>
-              {acquiredList.length}/{totalWasteCnt}
-            </p>
-            캐릭터 획득!
-          </div>
-        </div>
+    <BottomSheet
+      isOpen
+      initialHeight={40}
+      minHeight={40}
+      snapPoints={[40, 80]}
+      header={header({ acquiredList, totalWasteCnt })}
+    >
+      {/* 캐릭터 리스트 */}
+      <div className='grid grid-cols-2 place-items-center gap-[13px] sm:grid-cols-3'>
+        {CHARACTER_LIST.map((item) => {
+          const isAcquired = acquiredList.includes(item.id);
+          const isSelected = selectedCharacter === item.id;
 
-        {/* 캐릭터 리스트 */}
-        <div className='grid grid-cols-2 place-items-center gap-[13px] sm:grid-cols-3'>
-          {CHARACTER_LIST.map((item) => {
-            const isAcquired = acquiredList.includes(item.id);
-            const isSelected = selectedCharacter === item.id;
+          return (
+            <div
+              key={item.id}
+              role='button'
+              onClick={() => isAcquired && setSelectedCharacter(item.id)}
+              className={` ${CARD_STYLE.base} ${isAcquired ? CARD_STYLE.acquired(isSelected) : CARD_STYLE.locked} `}
+            >
+              <img
+                src={item.wasteImage}
+                alt={item.wasteName}
+                className={`${size[item.characterType].w} ${size[item.characterType].h} ${size[item.characterType].pb}`}
+              />
 
-            return (
-              <div
-                key={item.id}
-                role='button'
-                onClick={() => isAcquired && setSelectedCharacter(item.id)}
-                className={` ${CARD_STYLE.base} ${isAcquired ? CARD_STYLE.acquired(isSelected) : CARD_STYLE.locked} `}
+              <p
+                className={`font-inter text-center text-[10px] leading-[15px] font-normal tracking-[0.117px] ${
+                  isAcquired ? TEXT_COLOR.acquired : TEXT_COLOR.locked
+                }`}
               >
-                <img
-                  src={item.wasteImage}
-                  alt={item.wasteName}
-                  className={`${size[item.characterType].w} ${size[item.characterType].h} ${size[item.characterType].pb}`}
-                />
-
-                <p
-                  className={`font-inter text-center text-[10px] leading-[15px] font-normal tracking-[0.117px] ${
-                    isAcquired ? TEXT_COLOR.acquired : TEXT_COLOR.locked
-                  }`}
-                >
-                  {item.wasteName}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+                {item.wasteName}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </BottomSheet>
   );

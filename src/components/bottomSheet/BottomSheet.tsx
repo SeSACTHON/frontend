@@ -9,6 +9,7 @@ const BOTTOM_NAV_HEIGHT = 83; // BottomNav 높이 (px)
 interface BottomSheetProps {
   isOpen: boolean;
   onClose?: () => void;
+  header: React.ReactNode;
   children: React.ReactNode;
   initialHeight?: number; // 초기 높이 (%, 기본값: 60)
   minHeight?: number; // 최소 높이 (%, 0이면 완전히 닫을 수 있음, 기본값: initialHeight)
@@ -19,6 +20,7 @@ interface BottomSheetProps {
 export const BottomSheet = ({
   isOpen,
   onClose,
+  header,
   children,
   initialHeight = 45,
   minHeight = initialHeight,
@@ -211,6 +213,8 @@ export const BottomSheet = ({
       >
         <div className='h-1.5 w-12 rounded-full bg-gray-300' />
       </div>
+
+      <div className='px-6'>{header}</div>
 
       {/* 스크롤 가능한 컨텐츠 영역 */}
       <div
