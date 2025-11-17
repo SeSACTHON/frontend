@@ -35,10 +35,12 @@ const CharacterCollection = ({
   selectedCharacter,
   setSelectedCharacter,
 }: CharacterCollectionProps) => {
-  const [acquiredList, setAcquiredList] = useState<CharacterKey[]>([
-    'eco',
-    'paper',
-  ]);
+  // const [acquiredList, setAcquiredList] = useState<CharacterKey[]>([
+  //   'eco',
+  //   'paper',
+  // ]);
+  // set미사용으로 인한 vercel 오류로 임시 처리
+  const acquiredList: CharacterKey[] = ['eco', 'paper'];
   const totalWasteCnt = Object.keys(CHARACTER_DATA).length;
 
   return (
