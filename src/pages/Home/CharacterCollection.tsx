@@ -1,6 +1,6 @@
 import { BottomSheet } from '@/components/bottomSheet/BottomSheet';
 import { CHARACTER_DATA, CHARACTER_LIST } from '@/constants/CharacterInfo';
-import type { CharacterKey, ChracterType } from '@/types/CharacterInfoTypes';
+import type { CharacterKey, CharacterType } from '@/types/CharacterInfoTypes';
 import { useState } from 'react';
 
 type CharacterCollectionProps = {
@@ -9,9 +9,26 @@ type CharacterCollectionProps = {
 };
 
 // 쓰레기 아이콘 별 사이즈
-const size: Record<ChracterType, { w: string; h: string; pb: string }> = {
+const size: Record<CharacterType, { w: string; h: string; pb: string }> = {
   main: { w: 'w-[53px]', h: 'h-[53px]', pb: 'pb-[7.35px]' },
   sub: { w: 'w-[76px]', h: 'h-[46px]', pb: 'pb-[11px]' },
+};
+
+// 공통 스타일 정의
+const CARD_STYLE = {
+  base: 'flex flex-col items-center pb-4.5 justify-end shrink-0 w-[106px] h-[106px] rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.10)] transition-transform duration-200',
+
+  acquired: (isSelected: boolean) =>
+    `border-[1.352px] border-brand-primary pt-4.5 cursor-pointer active:scale-105 ${
+      isSelected ? 'bg-brand-secondary' : 'bg-white'
+    }`,
+
+  locked: 'border border-[#E5E7EB] pt-[18px] bg-inactive cursor-default',
+};
+
+const TEXT_COLOR = {
+  acquired: 'text-text-primary',
+  locked: 'text-[#99A1AF]',
 };
 
 const CharacterCollection = ({
@@ -26,7 +43,7 @@ const CharacterCollection = ({
 
   return (
     <BottomSheet isOpen initialHeight={40} minHeight={40}>
-      <div className='g-6 h-full w-full overflow-auto px-[25px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
+      <div className='g-6 h-full w-full'>
         {/* 타이틀 */}
         <div className='flex flex-row justify-between pb-6'>
           <span className='text-text-primary text-[17px] leading-6 font-semibold tracking-[-0.312px]'>
@@ -46,30 +63,12 @@ const CharacterCollection = ({
             const isAcquired = acquiredList.includes(item.id);
             const isSelected = selectedCharacter === item.id;
 
-            /** 공통 스타일 */
-            const commonStyle =
-              'flex flex-col items-center pb-4.5 justify-end shrink-0 w-[106px] h-[106px] rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.10)] transition-transform duration-200';
-
-            /** 획득 상태 스타일 */
-            const acquiredStyle =
-              'border-[1.352px] border-brand-primary pt-4.5 cursor-pointer active:scale-105' +
-              (isSelected ? ' bg-brand-secondary' : ' bg-white');
-
-            /** 미획득 상태 스타일 */
-            const lockedStyle =
-              'border border-[#E5E7EB] pt-[18px] bg-[#F9F9F9] cursor-default';
-
-            /** 텍스트 색상 */
-            const textColor = isAcquired
-              ? 'text-text-primary'
-              : 'text-[#99A1AF]';
-
             return (
               <div
                 key={item.id}
                 role='button'
                 onClick={() => isAcquired && setSelectedCharacter(item.id)}
-                className={` ${commonStyle} ${isAcquired ? acquiredStyle : lockedStyle} `}
+                className={` ${CARD_STYLE.base} ${isAcquired ? CARD_STYLE.acquired(isSelected) : CARD_STYLE.locked} `}
               >
                 <img
                   src={item.wasteImage}
@@ -78,7 +77,9 @@ const CharacterCollection = ({
                 />
 
                 <p
-                  className={`font-inter text-center text-[10px] leading-[15px] font-normal tracking-[0.117px] ${textColor} `}
+                  className={`font-inter text-center text-[10px] leading-[15px] font-normal tracking-[0.117px] ${
+                    isAcquired ? TEXT_COLOR.acquired : TEXT_COLOR.locked
+                  }`}
                 >
                   {item.wasteName}
                 </p>
