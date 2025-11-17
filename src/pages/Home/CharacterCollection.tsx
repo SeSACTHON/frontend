@@ -1,7 +1,6 @@
 import { BottomSheet } from '@/components/bottomSheet/BottomSheet';
 import { CHARACTER_DATA, CHARACTER_LIST } from '@/constants/CharacterInfo';
 import type { CharacterKey, CharacterType } from '@/types/CharacterInfoTypes';
-import { useState } from 'react';
 
 type CharacterCollectionProps = {
   selectedCharacter?: CharacterKey;
