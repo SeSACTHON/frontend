@@ -2,7 +2,8 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import superPinMarker from '@/assets/icons/icon_superbean.svg';
 import userMarker from '@/assets/icons/my_location.svg';
 import zeroWasteMarker from '@/assets/icons/icon_zerowaste.svg';
-import { DEFAULT_CENTER, useGeolocation } from '@/hooks/useGeolocation';
+import { DEFAULT_CENTER } from '@/constants/MapConfig';
+import { useGeolocation } from '@/hooks/useGeolocation';
 import useKakaoLoaderOrigin from '@/hooks/useKakaoLoaderOrigin';
 
 export const MapView = ({ id }: { id: number | null }) => {

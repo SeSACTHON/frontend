@@ -2,9 +2,9 @@ import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
+const BLANK_AREA = '32px';
 const VELOCITY_THRESHOLD = 500; // 속도 임계값 : 500 이상이면 빠른 스와이프로 판단
 const OFFSET_THRESHOLD = 50; // 이동 거리 임계값 : 실수로 살짝 움직인 것 방지
-const BOTTOM_NAV_HEIGHT = 83; // BottomNav 높이 (px)
 
 interface BottomSheetProps {
   isOpen: boolean;
@@ -223,7 +223,7 @@ export const BottomSheet = ({
         onTouchStart={handleContentTouchStart}
         style={{
           WebkitOverflowScrolling: 'touch',
-          paddingBottom: `${BOTTOM_NAV_HEIGHT + 24}px`,
+          paddingBottom: `calc(var(--height-bottom-nav) + ${BLANK_AREA})`,
         }}
       >
         {children}

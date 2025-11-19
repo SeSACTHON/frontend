@@ -1,3 +1,8 @@
+export interface Position {
+  id: number;
+  lat: number;
+  lng: number;
+}
 export interface MapCardType {
   id: number;
   name: string;
