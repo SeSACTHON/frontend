@@ -94,7 +94,7 @@ const ChatInputBar = ({ addMessage }: ChatInputBarProp) => {
         <div className='flex-1'>
           <input
             type='text'
-            className='border-stroke-default bg-inactive w-full rounded-[60px] border px-4 py-2 text-sm leading-normal font-normal outline-none placeholder:text-[#99A1AF]'
+            className='border-stroke-default bg-inactive placeholder:text-text-inactive w-full rounded-[60px] border px-4 py-2 text-sm leading-normal font-normal outline-none'
             placeholder='메시지를 입력하세요...'
             value={text}
             onChange={(e) => setText(e.target.value)}
