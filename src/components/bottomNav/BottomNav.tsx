@@ -15,23 +15,20 @@ const BottomNav = () => {
       label: 'HOME',
       icon: homeInActive,
       activeIcon: homeActive,
-      margin: '',
     },
-    { path: '/chat', label: 'CHAT', icon: chatInActive, margin: 'mr-8' },
+    { path: '/chat', label: 'CHAT', icon: chatInActive },
     { path: '/camera', label: 'CAMERA', icon: camera, isCenter: true },
     {
       path: '/info',
       label: 'INFO',
       icon: infoInActive,
       activeIcon: infoActive,
-      margin: 'ml-8',
     },
     {
       path: '/map',
       label: 'MAP',
       icon: mapInActive,
       activeIcon: mapActive,
-      margin: '',
     },
   ];
 
@@ -40,12 +37,9 @@ const BottomNav = () => {
     icon: string,
     activeIcon: string,
     isActive: boolean,
-    margin: string = '',
   ) => {
     return (
-      <div
-        className={`h-bottom-nav flex w-14 flex-col items-center justify-end gap-1 pb-6 ${margin}`}
-      >
+      <div className='h-bottom-nav flex w-14 flex-col items-center justify-end gap-1 pb-6'>
         <img
           src={isActive && activeIcon ? activeIcon : icon}
           alt={label}
@@ -64,11 +58,11 @@ const BottomNav = () => {
 
   return (
     <nav className='h-bottom-nav max-w-app absolute bottom-0 left-1/2 z-1000 flex w-full -translate-x-1/2 items-center justify-between border-t border-gray-200 bg-white px-10 shadow-[0_-3px_25px_rgba(0,0,0,0.20)]'>
-      {tabs.map(({ path, label, icon, activeIcon, isCenter, margin }) => (
+      {tabs.map(({ path, label, icon, activeIcon, isCenter }) => (
         <NavLink
           key={path}
           to={path}
-          className='relative flex flex-col items-center text-center'
+          className={`relative flex flex-col items-center text-center ${isCenter ? 'mx-8' : ''}`}
         >
           {({ isActive }) =>
             isCenter ? (
@@ -76,7 +70,7 @@ const BottomNav = () => {
                 <img src={icon} alt={label} />
               </div>
             ) : (
-              bottomItem(label, icon, activeIcon ?? '', isActive, margin)
+              bottomItem(label, icon, activeIcon ?? '', isActive)
             )
           }
         </NavLink>
