@@ -132,3 +132,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+/* 기본적으로 모든 요소에서 텍스트 선택 금지 */
+* {
+  user-select: none;
+  -webkit-user-select: none; /* iOS Safari 대응 */
+}
+
+/* 입력 가능한 영역은 선택 허용 */
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
