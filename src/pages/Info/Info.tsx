@@ -22,14 +22,16 @@ const Info = () => {
   };
 
   return (
-    <main className='scrollbar-hide relative h-full w-full overflow-y-auto'>
-      <div id='container' className='px-6 pt-7 pb-12'>
-        <div className='flex flex-col gap-[19px]'>
-          <h1 className='flex justify-center gap-[11px] text-2xl leading-8 font-semibold'>
-            <span className='text-text-primary'>분리배출,</span>
-            <span className='text-brand-primary'>왜 해야할까요?</span>
-          </h1>
+    <main className='no-scrollbar max-w-app relative h-full overflow-y-auto'>
+      <div className='sticky top-0 z-10 bg-white pt-7 pb-4'>
+        <h1 className='flex justify-center gap-[11px] text-2xl leading-8 font-semibold'>
+          <span className='text-text-primary'>분리배출,</span>
+          <span className='text-brand-primary'>왜 해야할까요?</span>
+        </h1>
+      </div>
 
+      <div id='container' className='px-6 pb-12'>
+        <div className='flex flex-col gap-[19px]'>
           <section
             className='flex flex-col items-center gap-[13px] rounded-3xl p-6 text-center'
             style={{
@@ -58,10 +60,10 @@ const Info = () => {
             </p>
 
             <div className='rounded-2xl bg-white/20 p-4'>
-              <div className='mb-3 flex items-center justify-center gap-6'>
-                <img src={Pet} alt='plastic-bottle' className='h-10 w-8' />
-                <img src={Paper} alt='paper' className='h-10 w-14' />
-                <img src={Can} alt='can' className='h-10 w-9' />
+              <div className='mb-3 flex justify-center'>
+                <img src={Pet} alt='plastic-bottle' className='h-11.5 w-19' />
+                <img src={Paper} alt='paper' className='h-11.5 w-19' />
+                <img src={Can} alt='can' className='h-11.5 w-19' />
               </div>
               <p className='text-center text-[10px]'>재활용 제품의 예시</p>
             </div>
