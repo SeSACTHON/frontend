@@ -16,8 +16,8 @@ const Home = () => {
   }, [selectedCharacter]);
 
   return (
-    <div className='flex h-full w-full flex-col items-center overflow-hidden bg-[#EBFBFF] pt-[73px]'>
-      <div className='flex h-[60%] w-full flex-col items-center'>
+    <div className='flex h-full w-full flex-col items-center overflow-hidden'>
+      <div className='flex h-[60%] w-full flex-col items-center pt-7.5'>
         <div className='flex w-full flex-row justify-between px-6'>
           <div className='gap-[3px]'>
             <p className='text-text-primary text-[22px] leading-8 font-extrabold tracking-[0.07px]'>
