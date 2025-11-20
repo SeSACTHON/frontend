@@ -1,15 +1,6 @@
 import { useEffect, useState } from 'react';
-
-// 기본 지도 중심 좌표 (동대문 디자인 플라자 DDP)
-export const DEFAULT_CENTER: Position = {
-  lat: 37.567976,
-  lng: 127.009341,
-} as const;
-
-interface Position {
-  lat: number;
-  lng: number;
-}
+import { DEFAULT_CENTER } from '@/constants/MapConfig';
+import type { Position } from '@/types/MapTypes';
 
 interface GeolocationError {
   code: number;
@@ -43,6 +34,7 @@ export const useGeolocation = (): UseGeolocationReturn => {
 
     const handleSuccess = (pos: GeolocationPosition) => {
       setPosition({
+        id: 0,
         lat: pos.coords.latitude,
         lng: pos.coords.longitude,
       });
@@ -83,16 +75,24 @@ export const useGeolocation = (): UseGeolocationReturn => {
 
   const tempPositions = [
     {
+      id: 1,
       lat: position.lat + 0.00055,
       lng: position.lng,
     },
     {
+      id: 2,
       lat: position.lat,
       lng: position.lng + 0.00055,
     },
     {
+      id: 3,
       lat: position.lat - 0.00055,
       lng: position.lng - 0.00055,
+    },
+    {
+      id: 4,
+      lat: position.lat - 0.00055,
+      lng: position.lng + 0.00055,
     },
   ];
 
