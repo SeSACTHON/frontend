@@ -1,10 +1,13 @@
-import MyPage from '@/assets/icons/icon_my_page.svg';
 import { useEffect, useState } from 'react';
-import type { CharacterItem, CharacterKey } from '@/types/CharacterInfoTypes';
+import { useNavigate } from 'react-router-dom';
+import MyPage from '@/assets/icons/icon_my_page.svg';
 import { CHARACTER_DATA } from '@/constants/CharacterInfo';
+import type { CharacterItem, CharacterKey } from '@/types/CharacterInfoTypes';
 import CharacterCollection from './CharacterCollection';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [selectedCharacter, setSelectedCharacter] =
     useState<CharacterKey>('eco');
   const [viewInfo, setViewInfo] = useState<CharacterItem>(
@@ -27,7 +30,12 @@ const Home = () => {
               오늘도 함께 지구를 지켜요!
             </p>
           </div>
-          <img src={MyPage} className='h-10 w-10' />
+          <img
+            role='button'
+            src={MyPage}
+            className='h-10 w-10 cursor-pointer'
+            onClick={() => navigate('/myPage')}
+          />
         </div>
 
         {/* 말풍선 */}

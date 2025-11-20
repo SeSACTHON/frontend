@@ -10,6 +10,8 @@ import Home from '@/pages/Home/Home';
 import Info from '@/pages/Info/Info';
 import Login from '@/pages/Login/Login';
 import Map from '@/pages/Map/Map';
+import MyPage from '@/pages/MyPage/MyPage';
+import EditPage from '@/pages/MyPage/EditPage';
 import Splash from '@/pages/Splash/Splash';
 
 const App = () => (
@@ -20,6 +22,8 @@ const App = () => (
 
       <Route path='/' element={<AppLayout />}>
         <Route path='home' element={<Home />} />
+        <Route path='myPage' element={<MyPage />} />
+        <Route path='myPage/edit' element={<EditPage />} />
         <Route path='chat' element={<Chat />} />
         <Route path='camera' element={<Camera />} />
         <Route path='camera/answer' element={<Answer />} />
