@@ -5,6 +5,8 @@ const getTitle = (pathname: string) => {
   switch (pathname) {
     case '/chat':
       return '이코';
+    case '/camera/answer':
+      return '분석결과';
   }
 };
 
