@@ -5,6 +5,7 @@ import { AuthProvider } from '@/context/Auth/AuthProvider';
 import AppLayout from '@/pages/App/AppLayout';
 import Answer from '@/pages/Camera/Answer';
 import Camera from '@/pages/Camera/Camera';
+import Reward from '@/pages/Camera/Reward';
 import Chat from '@/pages/Chat/Chat';
 import Home from '@/pages/Home/Home';
 import Info from '@/pages/Info/Info';
@@ -21,8 +22,11 @@ const App = () => (
       <Route path='/' element={<AppLayout />}>
         <Route path='home' element={<Home />} />
         <Route path='chat' element={<Chat />} />
-        <Route path='camera' element={<Camera />} />
-        <Route path='camera/answer' element={<Answer />} />
+        <Route path='camera'>
+          <Route index element={<Camera />} />
+          <Route path='answer' element={<Answer />} />
+          <Route path='reward' element={<Reward />} />
+        </Route>
         <Route path='info' element={<Info />} />
         <Route path='map' element={<Map />} />
       </Route>
