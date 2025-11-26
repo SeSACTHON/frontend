@@ -2,7 +2,10 @@ import MainCharacter3 from '@/assets/images/mainCharacter/main_3.png';
 
 export const EcoHelperCard = () => {
   return (
-    <div className='bg-brand-secondary rounded-2xl border-2 border-[#B9F8CF] p-4'>
+    <div
+      className='bg-brand-secondary rounded-2xl border-2 border-[#B9F8CF] p-4'
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className='flex items-start gap-3'>
         <img
           src={MainCharacter3}

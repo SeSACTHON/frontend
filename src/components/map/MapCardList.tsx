@@ -3,7 +3,7 @@ import { MapCard } from './MapCard';
 
 interface MapCardListProps {
   selectLocationId: number | null;
-  setSelectLocationId: (id: number) => void;
+  setSelectLocationId: (id: number | null) => void;
 }
 
 export const MapCardList = ({
