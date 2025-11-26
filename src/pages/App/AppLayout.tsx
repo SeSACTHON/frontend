@@ -12,7 +12,7 @@ const AppLayout = () => {
   const fullScreenPaths = ['/camera', '/map'];
   const isFullScreen = fullScreenPaths.some((path) => pathname === path);
 
-  const showAppHeaderPaths = ['/chat', '/myPage'];
+  const showAppHeaderPaths = ['/chat', '/camera/answer', '/myPage'];
   const showAppHeader = showAppHeaderPaths.some((path) =>
     pathname.startsWith(path),
   );

@@ -26,7 +26,7 @@ const Home = () => {
             <p className='text-text-primary text-[22px] leading-8 font-extrabold tracking-[0.07px]'>
               반가워요 환경 지킴이님
             </p>
-            <p className='text-[14px] leading-5 font-normal tracking-[-0.15px] text-[#6A7282]'>
+            <p className='text-text-secondary text-[14px] leading-5 font-normal tracking-[-0.15px]'>
               오늘도 함께 지구를 지켜요!
             </p>
           </div>
