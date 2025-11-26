@@ -1,6 +1,5 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { createPortal } from 'react-dom';
 
 const BLANK_AREA = '32px';
 const VELOCITY_THRESHOLD = 500; // 속도 임계값 : 500 이상이면 빠른 스와이프로 판단
@@ -15,6 +14,7 @@ interface BottomSheetProps {
   minHeight?: number; // 최소 높이 (%, 0이면 완전히 닫을 수 있음, 기본값: initialHeight)
   maxHeight?: number; // 최대 높이 (%, 기본값: 90)
   snapPoints?: number[]; // 스냅 포인트들 (%, 예: [60, 90])
+  isFullScreen?: boolean;
 }
 
 export const BottomSheet = ({
@@ -26,6 +26,7 @@ export const BottomSheet = ({
   minHeight = initialHeight,
   maxHeight = 90,
   snapPoints = [45, 90],
+  isFullScreen = false,
 }: BottomSheetProps) => {
   const controls = useAnimation();
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -41,8 +42,21 @@ export const BottomSheet = ({
 
   // 전체 화면 높이 (100% = 전체 viewport 높이)
   const getViewportHeight = useCallback(() => {
-    return window.innerHeight;
-  }, []);
+    const safeAreaTopValue = getComputedStyle(
+      document.documentElement,
+    ).getPropertyValue('--safe-area-top');
+
+    const safeAreaTop = parseFloat(safeAreaTopValue) || 0;
+
+    const bottomNavHeightValue = getComputedStyle(
+      document.documentElement,
+    ).getPropertyValue('--height-bottom-nav');
+    const bottomNavHeight = parseFloat(bottomNavHeightValue) || 0;
+
+    return (
+      window.innerHeight - (isFullScreen ? 0 : safeAreaTop) - bottomNavHeight
+    );
+  }, [isFullScreen]);
 
   // 높이를 픽셀로 변환 (전체 화면 높이 기준)
   const percentToPixels = useCallback(
@@ -197,12 +211,12 @@ export const BottomSheet = ({
 
   if (!isOpen) return null;
 
-  const sheet = (
+  return (
     <motion.div
       ref={sheetRef}
       animate={controls}
       initial={{ bottom: -percentToPixels(maxHeight) }}
-      className='max-w-app fixed left-1/2 z-50 flex w-full -translate-x-1/2 touch-none flex-col rounded-t-4xl bg-white shadow-2xl'
+      className='max-w-app absolute bottom-0 z-1000 flex w-full touch-none flex-col rounded-t-4xl bg-white shadow-2xl'
       style={{ height: percentToPixels(initialHeight) }}
     >
       {/* 드래그 핸들 */}
@@ -223,13 +237,11 @@ export const BottomSheet = ({
         onTouchStart={handleContentTouchStart}
         style={{
           WebkitOverflowScrolling: 'touch',
-          paddingBottom: `calc(var(--height-bottom-nav) + ${BLANK_AREA})`,
+          paddingBottom: BLANK_AREA,
         }}
       >
         {children}
       </div>
     </motion.div>
   );
-
-  return createPortal(sheet, document.body);
 };
