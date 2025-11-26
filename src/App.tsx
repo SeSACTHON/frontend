@@ -22,8 +22,10 @@ const App = () => (
 
       <Route path='/' element={<AppLayout />}>
         <Route path='home' element={<Home />} />
-        <Route path='myPage' element={<MyPage />} />
-        <Route path='myPage/edit' element={<EditPage />} />
+        <Route path='myPage'>
+          <Route index element={<MyPage />} />
+          <Route path='edit' element={<EditPage />} />
+        </Route>
         <Route path='chat' element={<Chat />} />
         <Route path='camera' element={<Camera />} />
         <Route path='camera/answer' element={<Answer />} />

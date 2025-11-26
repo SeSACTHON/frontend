@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
-import { ProfileLabels, type UserType } from '@/types/UserTypes';
+import { ProfileLabels } from '@/constants/UserConfig';
+import { type UserType } from '@/types/UserTypes';
 
 // 임시 데이터
 const menuItems: UserType[] = [
@@ -34,7 +35,7 @@ const MyPage = () => {
     console.log('로그아웃');
 
     // TODO: 로그아웃 로직 구현
-    navigate('/');
+    navigate('/login');
   };
 
   return (

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import closeIcon from '@/assets/icons/icon_x.svg';
 import { useKeyboardOffset } from '@/hooks/useKeyboardOffset';
-import { ProfileLabels, type UserType } from '@/types/UserTypes';
+import { ProfileLabels } from '@/constants/UserConfig';
+import { type UserType } from '@/types/UserTypes';
 
 const EditPage = () => {
   const navigate = useNavigate();
