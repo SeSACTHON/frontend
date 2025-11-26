@@ -7,6 +7,10 @@ const getTitle = (pathname: string) => {
       return '이코';
     case '/camera/answer':
       return '분석결과';
+    case '/myPage':
+      return '마이페이지';
+    default:
+      return '';
   }
 };
 
