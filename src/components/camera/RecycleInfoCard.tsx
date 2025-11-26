@@ -22,7 +22,7 @@ export const RecycleInfoCard = ({
   const containerStyle = {
     good: 'border-brand-primary bg-brand-secondary',
     bad: 'border-[#FFEDD4] bg-[#FEFAEA]',
-    default: 'border-[#E5E7EB] bg-[#F9FAFB]',
+    default: 'border-stroke-default bg-[#F9FAFB]',
   }[resultStatus];
 
   return (

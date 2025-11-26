@@ -25,7 +25,7 @@ const Answer = () => {
         <img
           src={imageUrl}
           alt='image'
-          className='mb-1.5 h-[243px] w-[243px] rounded-[5px] border-2 border-[#E5E7EB] object-cover'
+          className='border-stroke-default mb-1.5 h-[243px] w-[243px] rounded-[5px] border-2 object-cover'
         />
 
         <RecycleInfoCard

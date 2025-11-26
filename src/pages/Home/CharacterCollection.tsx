@@ -22,12 +22,12 @@ const CARD_STYLE = {
       isSelected ? 'bg-brand-secondary' : 'bg-white'
     }`,
 
-  locked: 'border border-[#E5E7EB] pt-[18px] bg-inactive cursor-default',
+  locked: 'border border-stroke-default pt-[18px] bg-inactive cursor-default',
 };
 
 const TEXT_COLOR = {
   acquired: 'text-text-primary',
-  locked: 'text-[#99A1AF]',
+  locked: 'text-text-inactive',
 };
 
 const header = ({
@@ -41,7 +41,7 @@ const header = ({
     <span className='text-text-primary text-[17px] leading-6 font-semibold tracking-[-0.312px]'>
       캐릭터 컬렉션
     </span>
-    <div className='text-brand-primary flex h-[27px] shrink-0 items-center justify-center gap-[5px] rounded-[18px] border border-[#B9F8CF] bg-[#F0FDF4] px-2.5 py-1.5 text-center text-[12px] font-medium tracking-[-0.312px]'>
+    <div className='text-brand-primary bg-brand-secondary flex h-[27px] shrink-0 items-center justify-center gap-[5px] rounded-[18px] border border-[#B9F8CF] px-2.5 py-1.5 text-center text-[12px] font-medium tracking-[-0.312px]'>
       <p className='font-extrabold'>
         {acquiredList.length}/{totalWasteCnt}
       </p>

@@ -122,7 +122,7 @@ const Info = () => {
             </aside>
           </section>
 
-          <section className='flex flex-col gap-3.5 rounded-3xl border-2 border-[#E5E7EB] bg-[#F9FAFB] px-6 py-[18px] shadow-lg'>
+          <section className='border-stroke-default flex flex-col gap-3.5 rounded-3xl border-2 bg-[#F9FAFB] px-6 py-[18px] shadow-lg'>
             <h3 className='text-text-primary leading-6 font-semibold tracking-tight'>
               분리수거 꿀팁 🍯
             </h3>

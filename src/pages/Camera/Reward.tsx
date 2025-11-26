@@ -13,7 +13,7 @@ const Reward = () => {
         <img
           src={RewardIcon}
           alt='reward'
-          className='mx-auto h-[243px] w-[243px] rounded-[5px] border-2 border-[#E5E7EB] object-cover'
+          className='border-stroke-default mx-auto h-[243px] w-[243px] rounded-[5px] border-2 object-cover'
         />
       </div>
 
