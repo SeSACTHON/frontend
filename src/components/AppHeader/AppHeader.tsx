@@ -5,6 +5,10 @@ const getTitle = (pathname: string) => {
   switch (pathname) {
     case '/chat':
       return '이코';
+    case '/myPage':
+      return '마이페이지';
+    default:
+      return '';
   }
 };
 
