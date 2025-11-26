@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Dialog } from '@/components/dialog/Dialog';
 
 interface LogoutDialogProps {
@@ -6,8 +7,13 @@ interface LogoutDialogProps {
 }
 
 export const LogoutDialog = ({ isOpen, onClose }: LogoutDialogProps) => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // TODO: 로그아웃 처리
+    console.log('로그아웃');
+
+    // TODO: 로그아웃 로직 구현
+    navigate('/login');
   };
 
   return (
@@ -15,7 +21,7 @@ export const LogoutDialog = ({ isOpen, onClose }: LogoutDialogProps) => {
       isOpen={isOpen}
       onClose={onClose}
       onConfirm={handleLogout}
-      title='로그아웃 하시겠어요?'
+      description='로그아웃 하시겠어요?'
       confirmText='로그아웃'
       cancelText='취소'
     />
