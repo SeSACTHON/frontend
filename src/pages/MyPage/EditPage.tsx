@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import closeIcon from '@/assets/icons/icon_x.svg';
+import closeIcon from '@/assets/icons/icon_x_gray.svg';
 import { useKeyboardOffset } from '@/hooks/useKeyboardOffset';
 import { ProfileLabels } from '@/constants/UserConfig';
 import { type UserType } from '@/types/UserTypes';
@@ -25,9 +25,9 @@ const EditPage = () => {
 
   return (
     <div className='relative flex h-full w-full flex-col'>
-      <div className='mt-6 flex flex-1 flex-col overflow-y-auto px-8.5'>
+      <div className='mt-7 flex flex-1 flex-col overflow-y-auto px-8.5'>
         <h1 className='text-text-primary mb-2 text-lg leading-7.5 font-semibold tracking-[-0.27px]'>
-          {`${ProfileLabels[label]}을 입력해주세요.`}
+          {`${ProfileLabels[label]}${label === 'phone' ? '를' : '을'} 입력해주세요.`}
         </h1>
 
         <label className='text-brand-primary mt-2 mb-2.5 h-7.5 text-[10px] leading-7.5 tracking-[-0.15px]'>
@@ -36,9 +36,10 @@ const EditPage = () => {
 
         <div className='relative'>
           <input
-            type='text'
+            type={label === 'phone' ? 'tel' : 'text'}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            maxLength={label === 'phone' ? 11 : undefined}
             className='border-brand-primary text-text-primary w-full border-b bg-transparent px-0 py-2 text-lg font-medium placeholder-gray-400 outline-none focus:border-[#4A9B8A]'
           />
 
@@ -47,7 +48,6 @@ const EditPage = () => {
               onClick={handleClear}
               className='absolute right-0 bottom-2.5 cursor-pointer'
             >
-              {/* TODO: 닫기 아이콘 변경 필요 */}
               <img
                 src={closeIcon}
                 alt='close-icon'

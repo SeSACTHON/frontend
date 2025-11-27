@@ -15,6 +15,7 @@ interface BottomSheetProps {
   maxHeight?: number; // 최대 높이 (%, 기본값: 90)
   snapPoints?: number[]; // 스냅 포인트들 (%, 예: [60, 90])
   isFullScreen?: boolean;
+  onClick?: () => void; // BottomSheet 클릭 시 호출
 }
 
 export const BottomSheet = ({
@@ -27,6 +28,7 @@ export const BottomSheet = ({
   maxHeight = 90,
   snapPoints = [45, 90],
   isFullScreen = false,
+  onClick,
 }: BottomSheetProps) => {
   const controls = useAnimation();
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -218,12 +220,14 @@ export const BottomSheet = ({
       initial={{ bottom: -percentToPixels(maxHeight) }}
       className='max-w-app absolute bottom-0 z-1000 flex w-full touch-none flex-col rounded-t-4xl bg-white shadow-2xl'
       style={{ height: percentToPixels(initialHeight) }}
+      onClick={onClick}
     >
       {/* 드래그 핸들 */}
       <div
         ref={handleRef}
         className='flex shrink-0 cursor-grab touch-none justify-center pt-3 pb-[14px] active:cursor-grabbing'
         onPointerDown={handlePointerDown}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className='h-1.5 w-12 rounded-full bg-gray-300' />
       </div>

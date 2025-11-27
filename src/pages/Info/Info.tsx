@@ -1,11 +1,12 @@
 import Can from '@/assets/icons/icon_can.svg';
+import { useNavigate } from 'react-router-dom';
 import CarSmoke from '@/assets/icons/icon_car.svg';
 import RecyclingCheer from '@/assets/images/mainCharacter/main_5.png';
 import Paper from '@/assets/icons/icon_paper.svg';
 import Pet from '@/assets/icons/icon_pet.svg';
 import RecyclingBin from '@/assets/icons/icon_recycle.svg';
 import TrashBag from '@/assets/icons/icon_trash_vinyl.svg';
-import { useNavigate } from 'react-router-dom';
+import HoneyPotIcon from '@/assets/icons/noto_honeypot.svg';
 
 const tips: string[] = [
   '내용물을 비우고 깨끗이 씻어주세요.',
@@ -125,9 +126,12 @@ const Info = () => {
           </section>
 
           <section className='border-stroke-default flex flex-col gap-3.5 rounded-3xl border-2 bg-[#F9FAFB] px-6 py-[18px] shadow-lg'>
-            <h3 className='text-text-primary leading-6 font-semibold tracking-tight'>
-              분리수거 꿀팁 🍯
-            </h3>
+            <div className='flex items-center gap-2'>
+              <h3 className='text-text-primary leading-6 font-semibold tracking-tight'>
+                분리수거 꿀팁
+              </h3>
+              <img src={HoneyPotIcon} alt='honey-pot' className='h-6 w-6' />
+            </div>
 
             {tips.map((tip, index) => (
               <div key={index} className='flex items-start gap-3'>

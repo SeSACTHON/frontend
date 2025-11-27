@@ -24,25 +24,20 @@ export const Dialog = ({
 }: DialogProps) => {
   if (!isOpen) return null;
 
-  const handleConfirm = () => {
-    onConfirm();
-    onClose();
-  };
-
   return createPortal(
-    <div className='fixed inset-0 z-1000 flex items-center justify-center bg-black/30'>
+    <div className='fixed inset-0 z-1000 flex items-center justify-center bg-black/25'>
       <div className='w-[276px] max-w-sm rounded-[10px] bg-white'>
         <div className='p-5'>
           {/* 제목 */}
           {title && (
-            <h2 className='text-text-primary text-center text-xs font-bold'>
+            <h2 className='text-text-primary mb-2 text-center text-xs font-bold'>
               {title}
             </h2>
           )}
 
           {/* 설명 */}
           {description && (
-            <p className='text-text-primary mt-2 text-center text-[11px] leading-4.5 whitespace-pre-line'>
+            <p className='text-text-primary text-center text-[11px] leading-4.5 whitespace-pre-line'>
               {description}
             </p>
           )}
@@ -63,7 +58,7 @@ export const Dialog = ({
             {cancelText}
           </button>
           <button
-            onClick={handleConfirm}
+            onClick={onConfirm}
             className='text-brand-primary flex-1 cursor-pointer font-extrabold'
           >
             {confirmText}
