@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
 import Logo from '@/assets/images/mainCharacter/app_logo.png';
 
 const Splash = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
+    // 로그인 구현 전 임시
+    const isLoggedIn = true;
     const timer = setTimeout(() => {
       if (isLoggedIn) {
         navigate('/home', { replace: true });
@@ -17,7 +17,7 @@ const Splash = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [isLoggedIn, navigate]);
+  }, [navigate]);
 
   return (
     <div className='bg-brand-secondary flex h-full w-full items-center justify-center'>
