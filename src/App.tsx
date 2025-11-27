@@ -5,6 +5,7 @@ import { AuthProvider } from '@/context/Auth/AuthProvider';
 import AppLayout from '@/pages/App/AppLayout';
 import Answer from '@/pages/Camera/Answer';
 import Camera from '@/pages/Camera/Camera';
+import Loading from '@/pages/Camera/Loading';
 import Reward from '@/pages/Camera/Reward';
 import Chat from '@/pages/Chat/Chat';
 import Home from '@/pages/Home/Home';
@@ -30,6 +31,7 @@ const App = () => (
         <Route path='chat' element={<Chat />} />
         <Route path='camera'>
           <Route index element={<Camera />} />
+          <Route path='loading' element={<Loading />} />
           <Route path='answer' element={<Answer />} />
           <Route path='reward' element={<Reward />} />
         </Route>
