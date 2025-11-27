@@ -19,6 +19,7 @@ export const useCamera = (): UseCameraReturn => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const allStreamsRef = useRef<MediaStream[]>([]);
 
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [permissionDenied, setPermissionDenied] = useState(false);
@@ -34,6 +35,8 @@ export const useCamera = (): UseCameraReturn => {
       };
 
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      allStreamsRef.current.push(stream);
+
       const video = videoRef.current;
 
       if (video) {
@@ -61,21 +64,48 @@ export const useCamera = (): UseCameraReturn => {
   };
 
   const stopCamera = () => {
-    if (!streamRef.current) return;
+    if (!allStreamsRef.current) return;
 
-    streamRef.current.getTracks().forEach((track) => {
-      track.stop();
+    allStreamsRef.current.forEach((stream) => {
+      stream.getTracks().forEach((track) => {
+        track.stop();
+      });
     });
 
+    allStreamsRef.current = [];
     streamRef.current = null;
+
+    if (videoRef.current) {
+      const video = videoRef.current;
+      video.pause();
+      video.srcObject = null;
+      video.load();
+    }
+
     setIsVideoReady(false);
   };
 
   useEffect(() => {
     startCamera();
 
+    const currentVideo = videoRef.current;
+    const allStreams = allStreamsRef;
+
     return () => {
-      stopCamera();
+      allStreams.current.forEach((stream) => {
+        stream.getTracks().forEach((track) => track.stop());
+      });
+
+      allStreams.current = [];
+      streamRef.current = null;
+
+      if (currentVideo) {
+        currentVideo.pause();
+        currentVideo.srcObject = null;
+        currentVideo.load();
+      }
+
+      setIsVideoReady(false);
     };
   }, []);
 
