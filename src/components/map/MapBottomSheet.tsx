@@ -4,7 +4,7 @@ import { EcoHelperCard } from './EcoHelperCard';
 
 interface MapBottomSheetProps {
   selectedId: number | null;
-  setSelectedId: (id: number) => void;
+  setSelectedId: (id: number | null) => void;
 }
 
 const header = (
@@ -33,7 +33,7 @@ export const MapBottomSheet = ({
   setSelectedId,
 }: MapBottomSheetProps) => {
   return (
-    <BottomSheet isOpen header={header}>
+    <BottomSheet isOpen header={header} onClick={() => setSelectedId(null)}>
       {children({ selectedId, setSelectedId })}
     </BottomSheet>
   );

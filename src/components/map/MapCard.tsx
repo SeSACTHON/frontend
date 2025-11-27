@@ -28,7 +28,7 @@ const InfoItem = ({
 interface MapCardProps {
   location: MapCardType;
   selectedLocationId: number | null;
-  setSelectedLocationId: (id: number) => void;
+  setSelectedLocationId: (id: number | null) => void;
 }
 
 export const MapCard = ({
@@ -47,7 +47,10 @@ export const MapCard = ({
           ? 'border-brand-primary bg-green-50 shadow-md'
           : 'hover:border-brand-primary border-gray-200'
       }`}
-      onClick={() => setSelectedLocationId(location.id)}
+      onClick={(e) => {
+        e.stopPropagation();
+        setSelectedLocationId(location.id);
+      }}
     >
       <div className='flex items-start gap-3'>
         <div className='flex items-center justify-center'>
