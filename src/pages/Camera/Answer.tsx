@@ -55,7 +55,7 @@ const Answer = () => {
         <RecyclingGuideCard data={recycleGuideTempData} />
 
         <ResultNavigationBtn type='camera' />
-        <ResultNavigationBtn type='reward' />
+        <ResultNavigationBtn type='home' />
       </div>
     </div>
   );
