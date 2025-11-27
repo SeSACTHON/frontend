@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Dialog } from '@/components/dialog/Dialog';
+import api from '@/api/axiosInstance';
 
 interface LogoutDialogProps {
   isOpen: boolean;
@@ -9,11 +10,17 @@ interface LogoutDialogProps {
 export const LogoutDialog = ({ isOpen, onClose }: LogoutDialogProps) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    console.log('로그아웃');
+  const handleLogout = async () => {
+    try {
+      const { data } = await api.post('/api/v1/auth/logout');
 
-    // TODO: 로그아웃 로직 구현
-    navigate('/login');
+      if (data.success) {
+        onClose();
+        navigate('/login', { replace: true });
+      }
+    } catch (err) {
+      console.error('로그아웃 중 오류가 발생했습니다.', err);
+    }
   };
 
   return (
