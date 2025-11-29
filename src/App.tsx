@@ -1,7 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { AuthProvider } from '@/context/Auth/AuthProvider';
-
 import AppLayout from '@/pages/App/AppLayout';
 import Answer from '@/pages/Camera/Answer';
 import Camera from '@/pages/Camera/Camera';
@@ -16,30 +14,28 @@ import EditPage from '@/pages/MyPage/EditPage';
 import Splash from '@/pages/Splash/Splash';
 
 const App = () => (
-  <AuthProvider>
-    <Routes>
-      <Route index element={<Splash />} />
-      <Route path='/login' element={<Login />} />
+  <Routes>
+    <Route index element={<Splash />} />
+    <Route path='/login' element={<Login />} />
 
-      <Route path='/' element={<AppLayout />}>
-        <Route path='home' element={<Home />} />
-        <Route path='myPage'>
-          <Route index element={<MyPage />} />
-          <Route path='edit' element={<EditPage />} />
-        </Route>
-        <Route path='chat' element={<Chat />} />
-        <Route path='camera'>
-          <Route index element={<Camera />} />
-          <Route path='loading' element={<Loading />} />
-          <Route path='answer' element={<Answer />} />
-        </Route>
-        <Route path='info' element={<Info />} />
-        <Route path='map' element={<Map />} />
+    <Route path='/' element={<AppLayout />}>
+      <Route path='home' element={<Home />} />
+      <Route path='myPage'>
+        <Route index element={<MyPage />} />
+        <Route path='edit' element={<EditPage />} />
       </Route>
-      {/* 잘못된 경로 진입 시 → 스플래시로 이동 */}
-      <Route path='*' element={<Navigate to='/' replace />} />
-    </Routes>
-  </AuthProvider>
+      <Route path='chat' element={<Chat />} />
+      <Route path='camera'>
+        <Route index element={<Camera />} />
+        <Route path='loading' element={<Loading />} />
+        <Route path='answer' element={<Answer />} />
+      </Route>
+      <Route path='info' element={<Info />} />
+      <Route path='map' element={<Map />} />
+    </Route>
+    {/* 잘못된 경로 진입 시 → 스플래시로 이동 */}
+    <Route path='*' element={<Navigate to='/' replace />} />
+  </Routes>
 );
 
 export default App;

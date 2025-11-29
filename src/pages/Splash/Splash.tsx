@@ -1,23 +1,34 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
 import Logo from '@/assets/images/mainCharacter/app_logo.png';
+import api from '@/api/axiosInstance';
 
 const Splash = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (isLoggedIn) {
-        navigate('/home', { replace: true });
-      } else {
+    const checkAuth = async () => {
+      try {
+        const { data } = await api.get('/api/v1/auth/me');
+
+        if (data.success) {
+          // 로그인 상태→ 홈 화면으로 이동
+          navigate('/home', { replace: true });
+        } else {
+          // 비로그인 상태 → 로그인 화면으로 이동
+          navigate('/login', { replace: true });
+        }
+      } catch {
+        // 요청 실패나 정보 없음 → 로그인 화면으로 이동
         navigate('/login', { replace: true });
       }
-    }, 1000);
+    };
+
+    // 1초 스플래시 후 체크
+    const timer = setTimeout(checkAuth, 1000);
 
     return () => clearTimeout(timer);
-  }, [isLoggedIn, navigate]);
+  }, [navigate]);
 
   return (
     <div className='bg-brand-secondary flex h-full w-full items-center justify-center'>

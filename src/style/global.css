@@ -17,6 +17,8 @@
   --height-bottom-nav: 83px;
   --height-app-header: 60px;
   --height-chat-input-bar: 83px;
+
+  --safe-area-top: env(safe-area-inset-top);
 }
 
 @utility no-scrollbar {
