@@ -9,9 +9,9 @@ const Splash = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data } = await api.get('/api/v1/auth/me');
+        const { data } = await api.get('/api/v1/user/me');
 
-        if (data.success) {
+        if (data && data.username) {
           // 로그인 상태→ 홈 화면으로 이동
           navigate('/home', { replace: true });
         } else {
