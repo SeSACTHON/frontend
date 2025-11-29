@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AppLayout from '@/pages/App/AppLayout';
 import Answer from '@/pages/Camera/Answer';
 import Camera from '@/pages/Camera/Camera';
-import Reward from '@/pages/Camera/Reward';
+import Loading from '@/pages/Camera/Loading';
 import Chat from '@/pages/Chat/Chat';
 import Home from '@/pages/Home/Home';
 import Info from '@/pages/Info/Info';
@@ -27,8 +27,8 @@ const App = () => (
       <Route path='chat' element={<Chat />} />
       <Route path='camera'>
         <Route index element={<Camera />} />
+        <Route path='loading' element={<Loading />} />
         <Route path='answer' element={<Answer />} />
-        <Route path='reward' element={<Reward />} />
       </Route>
       <Route path='info' element={<Info />} />
       <Route path='map' element={<Map />} />

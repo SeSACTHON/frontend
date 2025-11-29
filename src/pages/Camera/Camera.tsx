@@ -25,7 +25,7 @@ const Camera = () => {
     isVideoReady,
   });
 
-  const handleCapture = () => {
+  const handleCapture = async () => {
     const imageUrl = captureImage();
     if (!imageUrl) return;
 
@@ -33,7 +33,12 @@ const Camera = () => {
     console.log('📤 서버 전송 예정:', imageUrl);
 
     stopCamera();
-    navigate('/camera/answer');
+
+    navigate('/camera/loading', {
+      state: {
+        imageUrl: imageUrl,
+      },
+    });
   };
 
   const handleRetry = () => {
@@ -49,7 +54,7 @@ const Camera = () => {
             stopCamera();
             navigate(-1);
           }}
-          onConfirm={() => handleRetry()}
+          onConfirm={handleRetry}
         />
       )}
 
