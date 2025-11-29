@@ -1,16 +1,20 @@
-import App from '@/App.tsx';
-import '@/style/global.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 
+import App from '@/App.tsx';
+import { QueryClientProvider } from '@/providers/QueryClientProvider';
+import '@/style/global.css';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* 화면 캐싱 기능 임시 해제 */}
-    {/* <AliveScope> */}
-    <HashRouter>
-      <App />
-    </HashRouter>
-    {/* </AliveScope> */}
+    <QueryClientProvider>
+      {/* 화면 캐싱 기능 임시 해제 */}
+      {/* <AliveScope> */}
+      <HashRouter>
+        <App />
+      </HashRouter>
+      {/* </AliveScope> */}
+    </QueryClientProvider>
   </StrictMode>,
 );

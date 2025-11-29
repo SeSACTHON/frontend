@@ -2088,6 +2088,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.90.11":
+  version: 5.90.11
+  resolution: "@tanstack/query-core@npm:5.90.11"
+  checksum: 10c0/c2e44f36cec8957ec382ebcacb955bbb2112d03d475414f041194d05b7256d9ea1cc813eca7095033d36af0ba02c397aa646d976b428ff15b897b025ac53b3e9
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.90.11":
+  version: 5.90.11
+  resolution: "@tanstack/react-query@npm:5.90.11"
+  dependencies:
+    "@tanstack/query-core": "npm:5.90.11"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/2e4b73903c2445672996cfeca69985e92055870594a8b64cc8b960d756d199a023b6cceb9548525ea8cf3f3a1986b5bc3e3ec8d0722615c6ac9ed1478c604b02
+  languageName: node
+  linkType: hard
+
 "@tybys/wasm-util@npm:^0.10.0, @tybys/wasm-util@npm:^0.10.1":
   version: 0.10.1
   resolution: "@tybys/wasm-util@npm:0.10.1"
@@ -3265,6 +3283,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.36.0"
     "@tailwindcss/postcss": "npm:^4.1.16"
+    "@tanstack/react-query": "npm:^5.90.11"
     "@types/gh-pages": "npm:^6"
     "@types/node": "npm:^24.10.0"
     "@types/react": "npm:^19.1.16"
