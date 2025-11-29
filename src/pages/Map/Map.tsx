@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { DEFAULT_ZOOM, MapView } from '@/components/map/MapView';
 import { MapBottomSheet } from '@/components/map/MapBottomSheet';
+import { MapFloatingView } from '@/components/map/MapFloatingView';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { MapQueries } from '@/api/services/map/map.queries';
 
@@ -12,7 +13,8 @@ const Map = () => {
     useGeolocation();
 
   const [selectedId, setSelectedId] = useState<number | null>(null);
-
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+  const [reSearch, setReSearch] = useState(false);
   const [radius, setRadius] = useState<number>();
   const [mapZoom, setMapZoom] = useState<number>(DEFAULT_ZOOM);
 
@@ -33,16 +35,29 @@ const Map = () => {
     }
   }, [kakaoMapRef, refetch]);
 
+  useEffect(() => {
+    if (shouldRefetch) {
+      refetch();
+      setShouldRefetch(false);
+    }
+  }, [refetch, shouldRefetch]);
+
+  const handleRefetchCenterLocation = () => {
+    refetch();
+  };
+
   const handleCenterChanged = (map: kakao.maps.Map) => {
     const centerLocation = map.getCenter();
     setCenter({
       lat: centerLocation.getLat(),
       lng: centerLocation.getLng(),
     });
+    setReSearch(true);
   };
 
   const handleZoomChanged = useCallback((map: kakao.maps.Map) => {
     setMapZoom(map.getLevel());
+    setReSearch(true);
 
     // 중심에서 화면 우상단까지의 거리로 radius 계산
     const bounds = map.getBounds();
@@ -58,6 +73,19 @@ const Map = () => {
 
     setRadius(Math.round(dist));
   }, []);
+
+  const handleMoveToMyLocation = () => {
+    if (!userLocation) return;
+
+    setCenter(userLocation);
+    setShouldRefetch(true);
+
+    const moveLatLng = new kakao.maps.LatLng(
+      userLocation.lat,
+      userLocation.lng,
+    );
+    kakaoMapRef.current?.panTo(moveLatLng);
+  };
 
   const handleSetSelectedId = (id: number | null) => {
     const targetLocation = data?.find((item) => item.id === id);
@@ -81,6 +109,14 @@ const Map = () => {
         userLocation={userLocation}
         handleCenterChanged={handleCenterChanged}
         handleZoomChanged={handleZoomChanged}
+      />
+      <MapFloatingView
+        isMyLocation={
+          userLocation?.lat === center?.lat && userLocation?.lng === center?.lng
+        }
+        reSearch={reSearch}
+        refetchCenterLocation={handleRefetchCenterLocation}
+        moveToMyLocation={handleMoveToMyLocation}
       />
       <MapBottomSheet
         data={data ?? []}
