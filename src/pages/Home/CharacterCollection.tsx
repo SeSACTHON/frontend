@@ -8,9 +8,9 @@ type CharacterCollectionProps = {
 };
 
 // 쓰레기 아이콘 별 사이즈
-const size: Record<CharacterType, { w: string; h: string; pb: string }> = {
-  main: { w: 'w-[53px]', h: 'h-[53px]', pb: 'pb-[7.35px]' },
-  sub: { w: 'w-[76px]', h: 'h-[46px]', pb: 'pb-[11px]' },
+const size: Record<CharacterType, { w: string; h: string; mb: string }> = {
+  main: { w: 'w-[53px]', h: 'h-[53px]', mb: 'mb-[7.35px]' },
+  sub: { w: 'w-[76px]', h: 'h-[46px]', mb: 'mb-[11px]' },
 };
 
 // 공통 스타일 정의
@@ -67,7 +67,7 @@ const CharacterCollection = ({
       isOpen
       initialHeight={40}
       minHeight={40}
-      snapPoints={[40, 80]}
+      snapPoints={[40, 85]}
       header={header({ acquiredList, totalWasteCnt })}
     >
       {/* 캐릭터 리스트 */}
@@ -86,7 +86,7 @@ const CharacterCollection = ({
               <img
                 src={item.wasteImage}
                 alt={item.wasteName}
-                className={`${size[item.characterType].w} ${size[item.characterType].h} ${size[item.characterType].pb}`}
+                className={`${size[item.characterType].w} ${size[item.characterType].h} ${size[item.characterType].mb}`}
               />
 
               <p
